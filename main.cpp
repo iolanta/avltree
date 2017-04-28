@@ -30,13 +30,8 @@ int main()
     t2.read_to_file("avl_tree2.txt");
     std::cout << std::endl;
    // t2.print();
-    //time_test(10000000);
+   //time_test(10000000);
 
-    priority_queue<int> p;
-    p.push(5);
-    p.push(10);
-    p.push(3);
-    p.push(1);
     fix_priority_queue<int> p1(5);
     p1.push(5);
     p1.push(12);
@@ -44,9 +39,10 @@ int main()
     p1.push(20);
     p1.push(1);
     p1.push(13);
+    p1.push(17);
     p1.pop();
 
-   // top_words_in_book("got.txt");
+    top_words_in_book("C:\\Users\\user\\Documents\\Qt\\GameofThrones.txt");
 
 }
 

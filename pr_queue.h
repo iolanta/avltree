@@ -12,44 +12,46 @@ template <class T, class Container = std::vector<T>,class comp
 class priority_queue {
 protected:
     comp Compare;
+    bool more(const T & x, const T & x1){
+        return !((!Compare(x1, x) || Compare(x, x1)));
+    }
+
     Container A;
     typedef typename Container::size_type sz_t;
     sz_t heap_size;
 
     //restores the properties of a heap for the i-th element
     void heapify(sz_t i){
-       sz_t l = 2 * i;
-       sz_t r = 2 * i + 1;
-       sz_t largest;
-       if (l <= A.size() && Compare(A[i], A[l]))
-           largest = l;
-       else
-           largest = i;
-       if (r <= A.size() && Compare(A[largest], A[r]))
-           largest = r;
-       if (largest != i){
-           std::swap(A[i], A[largest]);
-           heapify(largest);
-       }
+        sz_t left = 2*i;
+        sz_t right = 2*i+1;
+        sz_t largest = i;
+        if (left <= heap_size && Compare(A[left], A[largest]))
+          largest = left;
+        if (right <= heap_size && Compare(A[right], A[largest]))
+          largest = right;
+        if (largest != i){
+            std::swap(A[i], A[largest]);
+            heapify(largest);
+        }
     }
 
     //builds a heap from an array
    void build_heap(T key){
        A.push_back(key);
-       heap_size = A.size();
-       if (heap_size > 1)
-        for(auto i = std::floor(A.size() / 2); i >= 0; --i)
+       heap_size = A.size() - 1;
+      // if (heap_size > 1)
+        for(auto i = (A.size() / 2); i >= 1; --i)
              heapify(i);
    }
 
    //removes and returns the element with the max key
    void heap_extract_max(){
-       if(heap_size<1)
+       if(heap_size < 1)
             return;
-        A[0] = A[heap_size - 1];
+        A[1] = A[heap_size];
         --heap_size;
-        heapify(0);
-        A.resize(heap_size);
+        heapify(1);
+        A.resize(heap_size + 1);
    }
 
    /*void heapsort(){
@@ -64,14 +66,14 @@ public:
    priority_queue(){
        A = Container();
        heap_size = 0;
-       A.resize(heap_size);
+       A.resize(1);
    }
 
    virtual void push(T key){
        build_heap(key);
    }
 
-   const T & top(){return A[0];}
+   const T & top(){return A[1];}
 
    void pop(){
        heap_extract_max();
@@ -96,8 +98,8 @@ public:
    }
 
    void push(T key){
-       if (priority_queue<T>::heap_size == max_size)
-           return;
+       if (priority_queue<T>::heap_size == max_size + 1)
+           priority_queue<T>::pop();
        priority_queue<T>::push(key);
    }
 

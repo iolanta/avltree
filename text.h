@@ -7,7 +7,9 @@
 #include <fstream>
 #include <QString>
 #include <QRegExp>
+#include <vector>
 #include <QStringList>
+#include <algorithm>
 
 #include "avl_tree.h"
 #include "pr_queue.h"
