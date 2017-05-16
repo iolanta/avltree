@@ -36,9 +36,9 @@ int main()
     p1.pop();
 
     //time_test_queue(10000);
-    //top_words_in_book("C:\\Users\\user\\Documents\\Qt\\GameofThrones.txt");
-    //top_names_in_book("C:\\Users\\user\\Documents\\Qt\\GameofThrones.txt");
-    the_largest_pair_of_anagrams("C:\\Users\\user\\Documents\\Qt\\GameofThrones.txt");
+    //top_words_in_book("D:\\User\\desktop\\Lesson4\\GameofThrones.txt");
+    top_names_in_book("D:\\User\\desktop\\Lesson4\\GameofThrones.txt");
+    //the_largest_pair_of_anagrams("C:\\Users\\user\\Documents\\Qt\\GameofThrones.txt");
 
 }
 

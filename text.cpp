@@ -7,6 +7,7 @@ class comp{
     }
 };
 
+
 void top_words_in_book(std::string fname){
     std::ifstream is;
     avl_tree<std::string> words;
@@ -42,7 +43,7 @@ void top_words_in_book(std::string fname){
     }
 
     std::ofstream output;
-    output.open("C:\\Users\\user\\Documents\\Qt\\top_words.txt");
+    output.open("D:\\User\\desktop\\Lesson4\\top_words.txt");
     if (output.is_open())
         std::for_each(v.rbegin(),v.rend(),[&](std::pair<int,std::string> i)->void{
             output << i.second << '\t' << i.first << "\n";
@@ -86,12 +87,13 @@ void top_names_in_book(std::string fname){
     }
 
     std::ofstream output;
-    output.open("C:\\Users\\user\\Documents\\Qt\\top_names.txt");
+    output.open("D:\\User\\desktop\\Lesson4\\top_names.txt");
     if (output.is_open())
         std::for_each(v.rbegin(),v.rend(),[&](std::pair<int,std::string> i)->void{
             output << i.second << '\t' << i.first << "\n";
         });
 }
+
 
 void the_largest_pair_of_anagrams(std::string fname){
     std::ifstream is;
@@ -135,7 +137,7 @@ void the_largest_pair_of_anagrams(std::string fname){
     }
 
     std::ofstream output;
-    output.open("C:\\Users\\user\\Documents\\Qt\\anagrams.txt");
+    output.open("D:\\User\\desktop\\Lesson4\\anagrams.txt");
     if (output.is_open())
         output<< '[' << p.top().second.first << ", " << p.top().second.second << "]" << '\t' << p.top().first;
 
