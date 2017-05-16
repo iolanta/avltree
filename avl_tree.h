@@ -502,6 +502,7 @@ public:
             iterator it = begin();
             erase(*it);
         }
+        erase(*begin());
     }
 
     ~avl_tree(){
@@ -518,6 +519,10 @@ public:
        }
         return count;
     }
+
+  /*  value_type& operator*(){
+        this-
+    }*/
 
     //Prints the contents of tree to the screen "sideways"
     void print(int level = 0)
@@ -559,3 +564,4 @@ public:
 void time_test(int cnt);
 
 #endif // AVL_TREE_H
+

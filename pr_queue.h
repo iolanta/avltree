@@ -12,9 +12,6 @@ template <class T, class Container = std::vector<T>,class comp
 class priority_queue {
 protected:
     comp Compare;
-    bool more(const T & x, const T & x1){
-        return !((!Compare(x1, x) || Compare(x, x1)));
-    }
 
     Container A;
     typedef typename Container::size_type sz_t;
@@ -53,14 +50,6 @@ protected:
         heapify(1);
         A.resize(heap_size + 1);
    }
-
-   /*void heapsort(){
-       for (auto i = A.size(); i >= 2; --i){
-           std::swap(A[0], A[i]);
-           --heap_size;
-           heapify(0);
-       }
-   }*/
 
 public:
    priority_queue(){
@@ -104,5 +93,7 @@ public:
    }
 
 };
+
+void time_test_queue(int cnt);
 
 #endif // PR_QUEUE_H

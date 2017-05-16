@@ -10,26 +10,19 @@ int main()
     t.insert(15);
     t.insert(32);
     t.insert(35);
-    t.insert(40);
-    t.insert(5);
-    t.insert(1);
-    t.insert(12);
-    t.insert(-9);
-    t.insert(13);
-    t.insert(0);
-    t.insert(32);
-    assert(t.count(32) == 2);
-    assert(!t.empty());
-    assert(*t.find(15) == 15);
-     t.print();
-    t.write_to_file_with_delim("avl_tree.txt");
-    t.write_to_file("avl_tree2.txt");
+    t.erase(15);
+    t.erase(32);
+    t.erase(35);
+    assert(t.empty());
+    //t.print();
+    //t.write_to_file_with_delim("avl_tree.txt");
+    //t.write_to_file("avl_tree2.txt");
     std::cout << std::endl;
 
     avl_tree<int> t2;
-    t2.read_to_file("avl_tree2.txt");
+    //t2.read_to_file("avl_tree2.txt");
     std::cout << std::endl;
-   // t2.print();
+   //t2.print();
    //time_test(10000000);
 
     fix_priority_queue<int> p1(5);
@@ -42,7 +35,10 @@ int main()
     p1.push(17);
     p1.pop();
 
-    top_words_in_book("C:\\Users\\user\\Documents\\Qt\\GameofThrones.txt");
+    //time_test_queue(10000);
+    //top_words_in_book("C:\\Users\\user\\Documents\\Qt\\GameofThrones.txt");
+    //top_names_in_book("C:\\Users\\user\\Documents\\Qt\\GameofThrones.txt");
+    the_largest_pair_of_anagrams("C:\\Users\\user\\Documents\\Qt\\GameofThrones.txt");
 
 }
 
@@ -50,5 +46,11 @@ int main()
 Time test for 10000000 insertions
 Set: 5.027 sec.
 AVL Tree: 6.914 sec.
+*/
+
+/*
+Time test for 10000 insertions
+Priority_queue<int, vector>: 0.561 sec.
+Priotity_queue<int, deque>: 17.815 sec.
 */
 

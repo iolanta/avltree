@@ -16,4 +16,8 @@
 
 void top_words_in_book(std::string fname);
 
+void top_names_in_book(std::string fname);
+
+void the_largest_pair_of_anagrams(std::string fname);
+
 #endif // TEXT_H
